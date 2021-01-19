@@ -8,7 +8,7 @@ from sendgrid.helpers.mail import Mail
 
 def main(msg: func.ServiceBusMessage):
 
-    notification_id = msg.get_body().decode('utf-8')
+    notification_id = int(msg.get_body().decode('utf-8'))
     logging.info('Python ServiceBus queue trigger processed message: %s',notification_id)
 
     # TODO: Get connection to database
